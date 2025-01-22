@@ -19,6 +19,9 @@ gem "jbuilder"
 
 gem "tailwindcss-rails", "~> 3.3"
 
+gem "devise", "~> 4.9"
+
+
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -61,4 +64,3 @@ end
 
 
 
-gem "devise", "~> 4.9"

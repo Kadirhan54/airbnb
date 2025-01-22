@@ -1,4 +1,4 @@
-<header class="bg-white border-b-2 border-gray-200" data-controller="_header">
+<header class="bg-white border-b-2 border-gray-200" data-controller="header">
   <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
     <div class="relative flex h-20 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
@@ -94,19 +94,22 @@
             tabindex="-1"
           >
             <!-- Active: "bg-gray-100", Not Active: "" -->
-            <%
+
+            <% if user_signed_in? %>
+              <%
 =begin%>
- <% if user_signed_in? %>
-              <%= link_to "Account", edit_profile_path , class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %>
+ <%= link_to "Account", edit_profile_path , class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %>
               <%= link_to "Dashboard", owner_reservations_path, class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %>
-              <%= link_to "Wishlist", wishlists_path, class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %>
+              <%= link_to "Wishlist", wishlists_path, class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %> 
+<%
+=end%>
               <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class:"block px-4 py-2 text-sm text-gray-700", role:"menuitem", tabindex:"-1" %>
             <% else %>
               <%= link_to "Log in", new_user_session_path, class:'js-login block px-4 py-2 text-sm text-gray-700', role:"menuitem", tabindex:"-1" %>
               <%= link_to "Sign up", new_user_registration_path, class:'block px-4 py-2 text-sm text-gray-700', role:"menuitem", tabindex:"-1" %>
             <% end %> 
-<%
-=end%>
+
+
           </div>
         </div>
       </div>
