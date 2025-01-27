@@ -8,4 +8,6 @@ class Property < ApplicationRecord
   validates :country, presence: :true
   # validates :latitude, presence: :true
   # validates :longitude, presence: :true
+
+  has_many_attached :images
 end

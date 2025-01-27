@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-6.times do |i|
+5.times do |i|
   property = Property.create!({
     name: Faker::Lorem.unique.sentence(word_count: 3),
     description: Faker::Lorem.unique.sentence(word_count: 5),
@@ -19,6 +19,9 @@
     country: Faker::Address.country_code,
 
   })
+
+  property.images.attach(io: File.open("db/images/property_#{i + 1}.jpg"), filename: property.name)
+  property.images.attach(io: File.open("db/images/property_#{i + 6}.jpg"), filename: property.name)
 end
 
     # latitude: Faker::Address.latitude,
